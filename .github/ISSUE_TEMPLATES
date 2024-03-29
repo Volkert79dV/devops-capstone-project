@@ -1,12 +1,33 @@
-**As a** [role]  
-**I need** [function]  
-**So that** [benefit]  
+**As a** user  
+**I need** an account microservice
+**So that** I can keep track of the customers on my e-commerce website  
       
 ### Details and Assumptions
-    * [document what you know]      
+    * Someone else has already started to work on this and has developed a Python Flask based Rest API with an endpoint to create a customer account
+      * The service exists and has a well formed REST API that other microservices can call
+      * The main service needs to be able to create, read, update, delete and list customers
 
 ### Acceptance Criteria     
     gherkin 
-    Given [some context]
-    When [certain action is taken]
-    Then [the outcome of action is observed]
+    Given that I created a new customer in the microservice
+    When I look up the new customer in microservice
+    Then the customer should be listed
+
+    Given That I look up an existing customer
+    When I look up the existing customer and access the record with read-access
+    Then I will be able to read the data behind the record But I will not be able to modify the customer
+
+    Given That I look up an existing customer
+    When I update the customer name
+    Then The customer name should be updated if I list it And the old customer name should no longer be present.
+
+    Given That I look up an existing customer
+    When I delete the customer record
+    Then The customer record should no longer show up if I search for it again.
+
+    Given That the microservice contains three customers
+    When I ask to list all customers using a wildcard "*" search
+    Then the microservice should list all 3 customers
+
+### You have been asked by the customer account manager at your company to develop an account microservice to keep track of the customers on your e-commerce website. Since it is a microservice, it is expected to have a well-formed REST API that other microservices can call. This service initially needs to create, read, update, delete, and list customers.
+### You have also been told that someone else has started on this task. They have already developed the database model and a Python Flask-based REST API with an endpoint to create a customer account. You just need to plan to add the REST APIs to read, update, delete, and list accounts. Since you will be working in an online lab environment, you will need to plan your work to get that environment ready for development.
